@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>countdown</title>
+</head>
+<body>
+<div class="counter" data-time="123123"></div>
+<div class="counter1" data-time="60"></div>
+<div class="counter2" data-time="66"></div>
+<div class="counter3" data-time="10"></div>
+<script>
+  if(typeof Worker != "undefined"){
+    function startCountDown(element) {
+      var w = new Worker('countdown.js');
+      
+      w.onmessage = function (event) {
+        if(event.data <= 0){
+          w.terminate();
+        } else {
+          element.innerHTML = event.data;
+        }
+      }
+
+      w.postMessage(element.dataset.time);
+    }
+  }
+
+  startCountDown(document.querySelector(".counter"));
+  startCountDown(document.querySelector(".counter1"));
+  startCountDown(document.querySelector(".counter2"));
+  startCountDown(document.querySelector(".counter3"));
+</script>
+</body>
+</html>

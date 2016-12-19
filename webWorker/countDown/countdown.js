@@ -21,7 +21,7 @@ class CountDown {
 
   _init(){
     if(typeof this.time != "object" && Number.isNaN(this.time)){
-      console.log("时间参数不正确");
+      postMessage(-2); /*时间参数不正确*/
       return false;
     }
 
@@ -63,9 +63,7 @@ class CountDown {
             innerHTML += `<span>${this.toDouble(minute)}</span>分`;
           }
 
-          if(second){
-            innerHTML += `<span>${this.toDouble(second)}</span>秒`;
-          }
+          innerHTML += `<span>${this.toDouble(second)}</span>秒`;
         }
       } else {
         let hour = Math.floor(this.time/3600)%24,
@@ -86,9 +84,7 @@ class CountDown {
             innerHTML += `<span>${this.toDouble(minute)}</span>分`;
           }
 
-          if(second){
-            innerHTML += `<span>${this.toDouble(second)}</span>秒`;
-          }
+          innerHTML += `<span>${this.toDouble(second)}</span>秒`;
         }
       }
 

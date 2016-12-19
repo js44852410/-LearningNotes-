@@ -1,5 +1,40 @@
+1、生成worker
+  生成worker十分简单，调用Worker构造函数，指定一个要在worker线程内运行的脚本的url，如果你希望收到worker的通知，可以用可以将worker的onmessage属性设置成一个特定的事件函数。
+   var myworker = new Worker('test.js');
+
+   myworker.onmessage = function(event){
+    console.log(event.data);
+   }
+
+  当然，可以通过addEventListener。
+
+  myworker.postMessage("");
+  worker调用自己的postMessage()函数时就会调用onmessage事件处理函数，并启动线程
+
+2、数据传递
+  主页面与worker之间传递数据是通过拷贝，而不是共享
+  通过postMessage将消息传递给主线程或从主线程传回来，message的data属性包含了传递的数据
+
+3、处理错误
+  worker出现运行错误时，它的onerror函数会被触发
+    错误事件拥有下列三个它感兴趣的字段：
+      message：可读性良好的错误消息
+      filename：发生错误的脚本文件名
+      lineno：发生错误时所在脚本文件的行号
+
+4、可以访问navigator对象
+5、引入脚本与库
+  worker线程可以访问一个全局函数：importScripts()，该函数允许worker将脚本或库引入自己作用域。
+    importScripts可以不传参数，也可以传多个参数
+    importScripts();
+    importScripts("test.js", "test2.js");
+
+Worker的一个优势在于能够执行处理器密集型的运算而不会阻塞ui线程
+
 Web Worker使用限制：
   Web Worker无法访问DOM节点；
   Web Worker无法访问全局变量或是全局函数；
   Web Worker无法调用alert()或者confirm之类的函数；
   Web Worker无法访问window、document之类的浏览器全局变量；
+
+Web Worker通过terminate强制终止

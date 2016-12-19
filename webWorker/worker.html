@@ -5,32 +5,30 @@
   <title>web Worker</title>
 </head>
 <body>
-  <div id="worker0"></div>
-  <div id="worker1"></div>
-  <div id="worker2"></div>
-  <div id="worker3"></div>
-  <div id="worker4"></div>
-  <div id="worker5"></div>
-  <div id="worker6"></div>
-  <div id="worker7"></div>
-  <div id="worker8"></div>
-  <div id="worker9"></div>
-  <div id="worker10"></div>
-  <div id="worker11"></div>
-  <script>
+<div id="worker0"></div>
+<div id="worker1"></div>
+<div id="worker2"></div>
+<div id="worker3"></div>
+<div id="worker4"></div>
+<div id="worker5"></div>
+<div id="worker6"></div>
+<div id="worker7"></div>
+<div id="worker8"></div>
+<div id="worker9"></div>
+<div id="worker10"></div>
+<div id="worker11"></div>
+<script>
+  if (typeof Worker != "undefined") {
     var w;
-    function startWorker(i){
-      if(typeof Worker != "undefined"){
-        w = new Worker('worker.js');
 
-        w.onmessage = function (event) {
-          document.getElementById("worker"+i).innerHTML = event.data;
-        }
+    function startWorker(i) {
+      w = new Worker('worker.js');
 
-        w.postMessage(100);
-      } else {
-        console.log("Sorry, no web work support...")
+      w.onmessage = function (event) {
+        document.getElementById("worker" + i).innerHTML = event.data;
       }
+
+      w.postMessage(100);
     }
 
     function endWorker() {
@@ -39,15 +37,30 @@
     }
 
     document.addEventListener("click", function () {
-      if(w){
-        endWorker();
+      if (w) {
+        //endWorker();
       } else {
-        for(var i = 0; i <= 11; i++){
+        for (var i = 0; i <= 10; i++) {
           startWorker(i);
         }
       }
-    })
+    });
 
-  </script>
+    function testWorkerObj() {
+      var wo = new Worker('objTest.js');
+      
+      wo.onmessage = function (event) {
+        document.getElementById("worker11").innerHTML = event.data.id;
+      }
+
+      wo.postMessage({"id":0})
+    }
+
+    testWorkerObj();
+  } else {
+    console.log("Sorry, no web work support...")
+  }
+
+</script>
 </body>
 </html>

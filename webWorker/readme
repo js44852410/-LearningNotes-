@@ -37,4 +37,6 @@ Web Worker使用限制：
   Web Worker无法调用alert()或者confirm之类的函数；
   Web Worker无法访问window、document之类的浏览器全局变量；
 
+Web Worker 不能跨域！！
+
 Web Worker通过terminate强制终止

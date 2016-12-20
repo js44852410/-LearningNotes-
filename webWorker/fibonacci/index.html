@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fibonacci</title>
+</head>
+<body>
+<input id="input" />
+<button id="btn">测试</button>
+<div id="result"></div>
+<script type="text/javascript">
+  if(typeof Worker != "undefined"){
+    var $input = document.getElementById("input"),
+      $btn = document.getElementById("btn"),
+      $result = document.getElementById("result"),
+      worker = new Worker('fibonacci.js'),
+      timeKey = function(val) {
+        return 'fibonacci(' + val + ')';
+      };
+
+    worker.onmessage = function(event) {
+      console.timeEnd(timeKey(event.data.input));
+      $result.innerHTML = event.data.result;
+    };
+
+    $btn.addEventListener('click', function() {
+      var val = parseInt($input.value, 10);
+      if (val) {
+        console.time(timeKey(val));
+        worker.postMessage(val);
+      }
+    });
+  }
+</script>
+</body>
+</html>

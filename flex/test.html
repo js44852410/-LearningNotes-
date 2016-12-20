@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+    
+    body{
+      background: #CCCCCC;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      background: #FFFFFF;
+      border-radius:10%;
+      border:1px solid #000000;
+      display: flex;
+    }
+
+    .box .item{
+      width: 20px;
+      height: 20px;
+      background: #000;
+      border-radius:50%;
+      display: block;
+      margin: 5px;
+    }
+
+    .test1{
+      justify-content: center;
+      align-items: center;
+    }
+
+    .test2{
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .test2 .item:last-child{
+      align-self: flex-end;
+    }
+
+    .test3{
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .test3 .item:nth-child(2n){
+      align-self:center;
+    }
+
+    .test3 .item:last-child{
+      align-self:flex-end;
+    }
+
+    .test4, .test5, .test6{
+      justify-content: space-between;
+      flex-direction: column;
+      align-content: stretch;
+    }
+
+    .test4 .itemsBox, .test5 .itemsBox, .test6 .itemsBox{
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .test5 .itemsBox:nth-child(2n){
+      justify-content: center;
+    }
+
+    .test7{
+      flex-wrap:wrap;
+    }
+
+    .test7 .item{
+      flex:0 0 50%;
+    }
+  </style>
+</head>
+<body>
+<div class="box test1">
+  <span class="item"></span>
+</div>
+
+<div class="box test2">
+  <span class="item"></span>
+  <span class="item"></span>
+</div>
+
+<div class="box test3">
+  <span class="item"></span>
+  <span class="item"></span>
+  <span class="item"></span>
+</div>
+
+<div class="box test4">
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+</div>
+
+<div class="box test7">
+  <span class="item"></span>
+  <span class="item"></span>
+  <span class="item"></span>
+  <span class="item"></span>
+</div>
+
+<div class="box test5">
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="itemsBox">
+    <span class="item"></span>
+  </div>
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+</div>
+
+<div class="box test6">
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="itemsBox">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+</div>
+
+<style type="text/css">
+  .navBox{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .navBox ul{
+    display: flex;
+    width: 200px;
+    height: 20px;
+    background: #FFFFFF;
+    justify-content: space-around;
+    border:1px solid #000000;
+    flex: 1;
+  }
+  
+  .navBox ul li{
+    padding: 2px;
+    background: #CCCCCC;
+    text-align: center;
+    flex:1;
+  }
+</style>
+<div class="navBox">
+  <ul>
+    <li>糯米</li>
+    <li>新闻</li>
+    <li>百度地图</li>
+    <li>好123</li>
+  </ul>
+</div>
+
+<style type="text/css">
+  .navBox2{
+    display: flex;
+    background-color: #FFFFFF;
+    width:200px;
+    margin: 40px;
+    border:1px solid #000000;
+  }
+
+  .navBox2 .item{
+    flex:1;
+    text-align: center;
+    background: #CCCCCC;
+  }
+</style>
+<div class="navBox2">
+  <span class="item">1</span>
+  <span class="item">2</span>
+  <span class="item">3</span>
+  <span class="item">4</span>
+</div>
+<div style="position:fixed; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.4); z-index: -1;"></div>
+</body>
+</html>

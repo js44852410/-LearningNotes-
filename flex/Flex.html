@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex</title>
+  <style type="text/css">
+    *{
+      margin:0;
+      padding:0;
+    }
+
+    div, p{
+      display: block;
+    }
+
+    ul,ol{
+      list-style-type: none;
+    }
+
+    body{
+      background: #CCC;
+    }
+    
+    .box{
+      display: -webkit-flex;
+      display: flex;
+      width:100px;
+      height: 100px;
+      border:1px solid #000;
+      -webkit-border-radius:10%;
+      -moz-border-radius:10%;
+      border-radius:10%;
+      background: #FFF;
+      justify-content: center;
+      align-items: center;
+      margin:40px;
+    }
+
+    .item{
+      display: block;
+      width:20px;
+      height:20px;
+      background: #333;
+      -webkit-border-radius:50%;
+      -moz-border-radius:50%;
+      border-radius:50%;
+    }
+
+    .second{
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .second .item:last-child{
+      align-self: flex-end;
+    }
+
+    .third{
+      justify-content: space-between;
+    }
+
+    .third .item:first-child{
+      align-self: flex-start;
+    }
+
+    .third .item:last-child{
+      align-self: flex-end;
+    }
+
+    .four, .five, .six{
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .four .itemsBox, .five .itemsBox, .six .itemsBox{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .five .itemsBox:nth-child(2n){
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span class="item"></span>
+  </div>
+
+  <div class="box second">
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="box third">
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+  </div>
+  <div class="box four">
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+  </div>
+  <div class="box five">
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+    <div class="itemsBox">
+      <span class="item"></span>
+    </div>
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+  </div>
+  <div class="box six">
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+    <div class="itemsBox">
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+  </div>
+</body>
+</html>

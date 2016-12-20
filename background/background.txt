@@ -1,0 +1,46 @@
+背景属性：
+  1、background-color: 背景颜色
+
+  2、background-image:背景图片
+    .bg{ background-image:url('path');}
+    .bg{ background-image:none;}
+
+  3、background-repeat：是否以及如何重复背景图片
+    （no-repeat、repeat-x、repeat-y、（repeat））
+
+  4、background-position：设置背景图片的开始位置
+      left、rigth、center、top、bottom（如果只规定了一个值，另一个默认center）
+      x% y%、 xpx ypx（如果只定义一个值，另一个值默认50%）
+      其中：center是中心点对齐，即图片的中心与元素的中心对齐
+      百分数值同时适用于元素和背景图片
+
+      background-position的默认值是0% 0%
+
+  5、background-attatchment：背景是否随页面其他部分移动
+      scroll（默认值，移动）
+      fixed 固定
+
+  6、background-clip：背景绘制区域
+      border-box：背景被裁剪到边框盒（默认值）
+      padding-box：背景被裁剪到内边距边框
+      content-box：背景被裁剪到内容框
+
+      参考链接：http://www.w3school.com.cn/tiy/c.asp?f=css_background-clip&p=2
+      兼容性：ie9+
+
+  7、background-origin：规定background-position相对于什么位置定位
+      border-box：相对于边框盒定位
+      padding-box：相对于内边距边框定位（默认值）
+      content-box：相对于内容框定位
+
+      兼容性：ie9+
+
+  8、background-size：背景图像的尺寸
+      宽度 高度：  如果只设置第一个值，第二个值会被置为auto
+      %  %  ：如果只设置第一个值，第二个值会被置为auto
+      cover：扩大图像到适合边框为止
+      contain：拉伸图像到社和边框
+
+      默认值：auto
+      兼容性：ie9+
+

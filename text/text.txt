@@ -1,0 +1,42 @@
+文本属性：
+  1、text-indent：第一行缩进一个给定的长度，该长度可以是负值
+    text-indent可以使用所有长度单位，包括百分比
+    设置text-indent为负值要小心，首行的某些文本可能会超出浏览器的左边界，为避免出现这种情况，建议再设置一个内边距或外边距
+    text-indent属性可以继承
+
+  2、text-align：文本行对齐方式
+    left、right、center  默认left
+    justify 两端对齐
+
+  3、word-spacing：改变字、词之间的间隔
+
+  4、letter-spacing：改变字符或字母的间隔
+
+  5、white-space:影响用户代理对源文档中空格、tab字符、换行的处理
+    normal：（默认）去除多余的空白符
+    pre：注意额外的空格，甚至回车，不允许自动换行（兼容性：ie7+）
+    pre-wrap：注意额外的空格，回车，允许自动换行
+    pre-line：合并空白符，保留换行，自动换行
+    nowrap：阻止文本换行，除非使用一个<br />
+
+  6、color:设置文本颜色
+
+  7、line-height：设置行高
+    normal（默认）设置合理的行高
+    number：设置 字体尺寸*number
+    length：固定的行高
+    %：字体尺寸* %
+
+  8、word-wrap：允许对长的不可分割的单词进行分割并换行到下一行
+    normal：（默认）只在允许的断点字换行
+    break-word：在长单词或url内部换行
+
+  9、text-overflow：规定当文本超出包含元素时发生的事情
+    clip（默认）裁剪文本
+    ellipsis：显示省略号代表被裁剪的文本
+
+  10、text-decoration：文本修饰
+    none（默认）标准的文本
+    underline：定义文本下的一条线
+    overline：定义文本上的一条线
+    line-through：定义穿过文本的一条线

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <link rel="apple-touch-icon" href="STATIC_F2E/m/images/app_logo.png">
+  <link rel="apple-touch-icon-precomposed" href="STATIC_F2E/m/images/app_logo.png">
+  <title>邸达电子商务有限公司</title>
+  <link rel="stylesheet" href="STATIC_F2E/m/css/m.css">
+  <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <script src="STATIC_F2E/m/js/library.js"></script>
+  <!-- <script src="/src/js/vue2.js"></script>
+  <script src="/src/js/vuex2.js"></script>
+  <script src="/src/js/vue-router2.js"></script>
+  <script src="/src/js/vue-resource.js"></script>
+  <script src="/src/js/swipe.js"></script> -->
+  <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script>
+    var home = <?php echo json_encode($items); ?> || {};
+    home.reviewStatus = '<?php echo $reviewStatus; ?>';
+    home.reviewReason = '<?php echo $deniedReason; ?>';
+    home.deviceType = '<?php echo $deviceType; ?>';
+    wx.config({
+      debug: false,
+      appId: '<?php echo $wx['appId']?>',
+      timestamp: '<?php echo $wx['timestamp']?>',
+      nonceStr: '<?php echo $wx['nonceStr']?>',
+      signature: '<?php echo $wx['signature']?>',
+      jsApiList: [
+        // 所有要调用的 API 都要加到这个列表中
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'onMenuShareQZone',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideMenuItems',
+        'showMenuItems',
+        'scanQRCode',
+        'hideOptionMenu',
+        'hideAllNonBaseMenuItem'
+      ]
+    });
+    wx.ready(function() {
+      wx.hideOptionMenu();
+      wx.showMenuItems({
+        menuList: [
+          'menuItem:share:appMessage',
+          'menuItem:share:timeline',
+          'menuItem:share:qq',
+          'menuItem:share:QZone',
+          'menuItem:favorite',
+        ] // 要显示的菜单项，所有menu项见附录3
+      });
+
+      self.setShare({
+        title: home.wx_share_config.wx_share_title || '中国领先的酒水B2B交易平台',
+        desc: home.wx_share_config.wx_share_content || '中国领先的酒水B2B交易平台,依托于中国最大的酒水行业联盟中国酒业英雄联盟,致力于构建中国酒业第一生态圈和中国快速消费品第一生态圈',
+        link: home.wx_share_config.wx_share_url || location.origin,
+        imgUrl: home.wx_share_config.wx_share_thumbnail || 'https://static.91dida.cn/skin/m/images/app_logo.png'
+      });
+    });
+    function setShare(shareContent) {
+      wx.onMenuShareTimeline({
+        title: shareContent.title,
+        link: shareContent.link,
+        imgUrl: shareContent.imgUrl
+      });
+      wx.onMenuShareAppMessage({
+        title: shareContent.title,
+        desc: shareContent.desc,
+        link: shareContent.link,
+        imgUrl: shareContent.imgUrl
+      });
+      wx.onMenuShareQQ({
+        title: shareContent.title,
+        desc: shareContent.desc,
+        link: shareContent.link,
+        imgUrl: shareContent.imgUrl
+      });
+      wx.onMenuShareQZone({
+        title: shareContent.title,
+        desc: shareContent.desc,
+        link: shareContent.link,
+        imgUrl: shareContent.imgUrl
+      })
+    }
+  </script>
+  <script>
+    var _czc = _czc || [],
+        host = window.location.host,
+        siteid = "";
+
+    switch (host){
+      case "betam.91dida.cn":
+        /*测试版*/
+        siteid = "1261123804";
+        break;
+      case "prewap.91dida.cn":
+        /*预发布版*/
+        siteid = "1261128236";
+        break;
+      case "m.91dida.cn":
+        /*正式版*/
+        siteid = "1261117816";
+        break;
+      default:
+    }
+    _czc.push(["_setAccount", siteid]);
+  </script>
+</head>
+<body>
+  <div id='container' style="min-height:100%;">
+    <router-view></router-view>
+  </div>
+  <div class="loading" id='loading'>
+    <div class="leaf-outer">
+      <div class="leaf-inner">
+        <em class="leaf leaf-0"></em>
+        <em class="leaf leaf-1"></em>
+        <em class="leaf leaf-2"></em>
+        <em class="leaf leaf-3"></em>
+        <em class="leaf leaf-4"></em>
+        <em class="leaf leaf-5"></em>
+        <em class="leaf leaf-6"></em>
+        <em class="leaf leaf-7"></em>
+        <em class="leaf leaf-8"></em>
+        <em class="leaf leaf-9"></em>
+        <em class="leaf leaf-10"></em>
+        <em class="leaf leaf-11"></em>
+      </div>
+    </div>
+    <p class="text">努力加载中...</p>
+  </div>
+  <script>
+      ;(function(){
+        document.body.style.height = window.innerHeight + "px";
+      })();
+    </script>
+  <script src="STATIC_F2E/m/js/m.js"></script>
+  <div style="display: none;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_"+siteid+"'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D"+siteid+"' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+</body>
+</html>

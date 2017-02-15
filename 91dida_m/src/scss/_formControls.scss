@@ -1,0 +1,49 @@
+form {
+  .separate {
+    margin-top: 10px;
+    & + .options {
+      margin-top: 10px;
+      a {
+        color: $linkColor;
+      }
+    }
+  }
+  .items {
+    padding: 0 $margin;
+    height: $inputHeight;
+    position: relative;
+    background-color: #fff;
+    @include borderBottom;
+    overflow: hidden;
+    &:first-child {
+      @include borderTop;
+      &:after {
+        margin-left: $margin;
+      }
+    }
+    .title {
+      display: block;
+      line-height: $inputHeight;
+      width: $formTitleWidht;
+      position: relative;
+      z-index: 1;
+      float: left;
+    }
+    .con {
+      overflow: hidden;
+    }
+    .input {
+      position: absolute;
+      left: $margin;
+      top: 1px;
+      bottom: 1px;
+      width: 100% - $margin;
+      padding-left: $formTitleWidht;
+    }
+  }
+  .separate-left {
+    &:after {
+      margin-left: $margin;
+    }
+  }
+}

@@ -1,1 +1,0 @@
-webpack -p --config webpack.config.js && gulp online && @echo. & pause

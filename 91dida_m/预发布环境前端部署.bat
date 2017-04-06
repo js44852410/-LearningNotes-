@@ -1,0 +1,1 @@
+webpack -p --config webpack.config.js && gulp pre && @echo. & pause

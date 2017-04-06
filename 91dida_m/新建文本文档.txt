@@ -1,0 +1,3 @@
+执行线上正式环境部署前，注释 /src/config/main.js 中
+// 开启调试信息
+Vue.config.devtools = true;

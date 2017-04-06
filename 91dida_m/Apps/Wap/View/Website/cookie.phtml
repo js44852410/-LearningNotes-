@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie测试</title>
+  <script src='/src/js/fetch.js'></script>
+</head>
+<body>
+  <input id='input' type="text">
+  <button onClick='setCookie()'>设置cookie</button>
+  <button onClick='getCookie()'>获取cookie</button>
+  <button onClick='textFetch()'>是否支持Fetch</button>
+  <script>
+    function setCookie() {
+      var input = document.getElementById('input').value;
+      document.cookie = 'myCookie=' + input;
+    }
+    function getCookie() {
+      alert(document.cookie)
+    }
+    function textFetch(argument) {
+      alert(typeof self.fetch);
+    }
+  </script>
+</body>
+</html>

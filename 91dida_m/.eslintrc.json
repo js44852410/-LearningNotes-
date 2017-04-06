@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb-base",
+  "rueles": {
+    "comma-dangle": ["error", "always-multiline"],
+    "import/prefer-default-export": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-membe": 0,
+    "func-name": 0,
+    "space-before-function-pare": 0,
+    "array-callback-retur": 0,
+    "consistent-retur": 0,
+    "no-ne": 0,
+    "wrap-iif": 0,
+    "no-multi-space": 0
+  },
+  "globals": {
+    "Vue": true,
+    "VueRouter": true,
+    "Vuex": true,
+    "router": true,
+    "self": true,
+    "FileReader": true,
+    "window": true
+  }
+}

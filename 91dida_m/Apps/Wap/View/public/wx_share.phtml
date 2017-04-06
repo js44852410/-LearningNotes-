@@ -1,0 +1,71 @@
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+    debug: false,
+    appId: '<?php echo $wx['appId']?>',
+    timestamp: '<?php echo $wx['timestamp']?>',
+    nonceStr: '<?php echo $wx['nonceStr']?>',
+    signature: '<?php echo $wx['signature']?>',
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareWeibo',
+      'onMenuShareQZone',
+      'getNetworkType',
+      'openLocation',
+      'getLocation',
+      'hideMenuItems',
+      'showMenuItems',
+      'scanQRCode',
+      'hideOptionMenu',
+      'hideAllNonBaseMenuItem'
+    ]
+  });
+
+  wx.ready(function() {
+    wx.hideOptionMenu();
+    wx.showMenuItems({
+      menuList: [
+        'menuItem:share:appMessage',
+        'menuItem:share:timeline',
+        'menuItem:share:qq',
+        'menuItem:share:QZone',
+        'menuItem:favorite',
+      ] // 要显示的菜单项，所有menu项见附录3
+    });
+
+    self.setShare({
+      title: '中国领先的酒水B2B交易平台',
+      desc: '中国领先的酒水B2B交易平台,依托于中国最大的酒水行业联盟中国酒业英雄联盟,致力于构建中国酒业第一生态圈和中国快速消费品第一生态圈',
+      link: location.origin,
+      imgUrl: 'http://betam.91dida.cn/src/images/app_logo.png'
+    });
+  });
+  function setShare(shareContent) {
+    wx.onMenuShareTimeline({
+      title: shareContent.title,
+      link: shareContent.link,
+      imgUrl: shareContent.imgUrl
+    });
+    wx.onMenuShareAppMessage({
+      title: shareContent.title,
+      desc: shareContent.desc,
+      link: shareContent.link,
+      imgUrl: shareContent.imgUrl
+    });
+    wx.onMenuShareQQ({
+      title: shareContent.title,
+      desc: shareContent.desc,
+      link: shareContent.link,
+      imgUrl: shareContent.imgUrl
+    });
+    wx.onMenuShareQZone({
+      title: shareContent.title,
+      desc: shareContent.desc,
+      link: shareContent.link,
+      imgUrl: shareContent.imgUrl
+    })
+  }
+</script>

@@ -1,0 +1,16 @@
++ git init:  创建git仓库；
++ git add [file]: 添加文件到暂存区；
++ git commit -m '提交日志': 提交文件；
++ git status: 查看工作区状态；
++ git diff [file]: 查看文件修改内容；
++ git log: 显示提交日志;
++ git reset --hard [HEAD^][HEAD~100][版本号]： 回退版本；
++ git checkout --[file]: 重置文件；
++ git reset HEAD [file]: 把暂存区的修改回退到工作区；
++ git checkout -b 本地分支名称： 创建新的分支，并切换到新分支；
++ git branch: 查看分支信息；
++ git branch dev: 创建新的dev分支;
++ git merge dev: 合并dev分支到当前分支；
++ git branch -d dev: 删除dev分支；
++ git remote: 查看远程仓库
+
